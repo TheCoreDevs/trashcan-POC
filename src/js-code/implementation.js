@@ -24,13 +24,13 @@ const trashcanContract = new ethers.Contract(trashcanAddress, trashcanABI, provi
 const trashcanContractWithSigner = trashcanContract.connect(signer);
 
 async function cleanERC721(tokens, ids) {
-    trashcanContractWithSigner.cleanERC721(tokens, ids);
+    await trashcanContractWithSigner.cleanERC721(tokens, ids);
 }
 
 async function cleanERC1155(tokens, ids, amounts) {
-    trashcanContractWithSigner.cleanERC1155(tokens, ids, amounts);
+    await trashcanContractWithSigner.cleanERC1155(tokens, ids, amounts);
 }
 
 async function cleanERC20(tokens) {
-    trashcanContractWithSigner.cleanERC20(tokens);
+    await trashcanContractWithSigner.cleanERC20(tokens);
 }

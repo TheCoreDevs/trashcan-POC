@@ -40,16 +40,15 @@
   </head>
   <body>
     <div id="erc721">
-      <script src="../src/js-code/implementation.js"></script>
       <h1>ERC721</h1>
       <label for="tokens721">token contracts</label>
       <input type="text" id="tokens721" name="tokens721"><br>
       <label for="IDs721">token IDs</label>
       <input type="text" id="IDs721" name="IDs721"><br>
-      <button type="button" name="submitErc721" onclick="cleanERC721(document.getElementById('tokens721').value)">throw away!</button>
+      <button type="button" name="submitErc721" onclick="await cleanERC721(document.getElementById('tokens721').value)">throw away!</button>
     </div>
     <p id="load">Firebase SDK Loading&hellip;</p>
-
+    <script src="../src/js-code/implementation.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const loadEl = document.querySelector('#load');
