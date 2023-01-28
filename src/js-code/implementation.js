@@ -12,3 +12,26 @@ await provider.send("eth_requestAccounts", []);
 // send ether and pay to change state within the blockchain.
 // For this, you need the account signer...
 const signer = provider.getSigner()
+
+const trashcanABI = [
+    'function cleanERC721(address[] tokens, uint[][] ids)',
+    'function cleanERC1155(address[] tokens, uint[][] ids, uint[][] amounts)',
+    'function cleanERC20(address[] memory tokens)'
+]
+
+const trashcanAddress = "";
+
+const trashcanContract = new ethers.Contract(trashcanAddress, trashcanABI, provider);
+const trashcanContractWithSigner = trashcanContract.connect(signer);
+
+async function cleanERC721(tokens, ids) {
+    trashcanContractWithSigner.cleanERC721(tokens, ids);
+}
+
+async function cleanERC1155(tokens, ids, amounts) {
+    trashcanContractWithSigner.cleanERC1155(tokens, ids, amounts);
+}
+
+async function cleanERC20(tokens) {
+    trashcanContractWithSigner.cleanERC20(tokens);
+}
