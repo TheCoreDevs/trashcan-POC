@@ -23,7 +23,7 @@ const trashcanAddress = "0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85"; // Add sma
 const trashcanContract = new ethers.Contract(trashcanAddress, trashcanABI, provider);
 const trashcanContractWithSigner = trashcanContract.connect(signer);
 
-async function cleanERC721() {
+window.cleanERC721 = async function() {
     const tokens = document.getElementById("tokens721").value.split(",");
     const ids = document.getElementById("ids721").value.split(",");
     try {
@@ -34,7 +34,7 @@ async function cleanERC721() {
     }
 }
 
-async function cleanERC1155() {
+window.cleanERC1155 = async function() {
     const tokens = document.getElementById("tokens1155").value.split(",");
     const ids = document.getElementById("ids1155").value.split(",");
     const amounts = document.getElementById("amounts1155").value.split(",");
@@ -46,7 +46,7 @@ async function cleanERC1155() {
     }
 }
 
-async function cleanERC20() {
+window.cleanERC20 = async function() {
     const tokens = document.getElementById("tokens20").value.split(",");
     try {
         await trashcanContractWithSigner.cleanERC20(tokens);
