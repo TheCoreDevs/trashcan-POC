@@ -1,4 +1,3 @@
-import "../firebase/firebase.js";
 import { ethers } from "ethers";
 
 // A Web3Provider wraps a standard Web3 provider, which is
