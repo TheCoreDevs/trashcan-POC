@@ -18,7 +18,7 @@ const trashcanABI = [
     'function cleanERC20(address[] memory tokens)'
 ]
 
-const trashcanAddress = "0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85"; // Add smart contract address here
+const trashcanAddress = "0xA293a43a975634a0A0bA803B7B4B45A336bb3f2D"; // Add smart contract address here
 
 const trashcanContract = new ethers.Contract(trashcanAddress, trashcanABI, provider);
 const trashcanContractWithSigner = trashcanContract.connect(signer);
