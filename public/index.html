@@ -1,42 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ethereum Token Cleaner</title>
-  </head>
-  <body>
-    <h1>Ethereum Token Cleaner</h1>
-    <form>
-      <h2>Clean ERC721 Tokens</h2>
-      <label for="tokens721">Token Addresses:</label>
-      <input type="text" id="tokens721" name="tokens721" placeholder="Enter token addresses separated by commas">
-      <br>
-      <label for="ids721">Token IDs:</label>
-      <input type="text" id="ids721" name="ids721" placeholder="Enter token IDs separated by commas">
-      <br>
-      <button type="button" onclick="cleanERC721()">Clean Tokens</button>
-      <br>
-      <br>
-      <h2>Clean ERC1155 Tokens</h2>
-      <label for="tokens1155">Token Addresses:</label>
-      <input type="text" id="tokens1155" name="tokens1155" placeholder="Enter token addresses separated by commas">
-      <br>
-      <label for="ids1155">Token IDs:</label>
-      <input type="text" id="ids1155" name="ids1155" placeholder="Enter token IDs separated by commas">
-      <br>
-      <label for="amounts1155">Token Amounts:</label>
-      <input type="text" id="amounts1155" name="amounts1155" placeholder="Enter token amounts separated by commas">
-      <br>
-      <button type="button" onclick="cleanERC1155()">Clean Tokens</button>
-      <br>
-      <br>
-      <h2>Clean ERC20 Tokens</h2>
-      <label for="tokens20">Token Addresses:</label>
-      <input type="text" id="tokens20" name="tokens20" placeholder="Enter token addresses separated by commas">
-      <br>
-      <button type="button" onclick="cleanERC20()">Clean Tokens</button>
-    </form>
-    <br>
-    <div id="status"></div>
-    <script src="../src/js-code/implementation.js"></script>
-  </body>
+    <head>
+        <title>Garbage Can POC</title>
+    </head>
+
+    <body>
+        <div id="app">
+            {{ hello }}
+        </div>
+
+        <script src="https://unpkg.com/vue@next"></script>
+        <script>
+            let app = Vue.createApp({
+                data: function() {
+                    return {
+                        hello: 'hello'
+                    }
+                }
+            })
+            app.mount('#app')
+        </script>
+    </body>
 </html>
