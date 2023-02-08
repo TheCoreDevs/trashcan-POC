@@ -10,20 +10,18 @@
             <button @click="connectToMetaMask">Connect to MetaMask</button>
         </div>
 
-        <script src="https://unpkg.com/vue@next"></script>
-        <script type="module">
-            import { ethers } from "../src/ethers.js";
-
-            let app = Vue.createApp({
-                data: function() {
-                    return {
-                        hello: 'hello there',
-                        provider: null
-                    }
+        <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+        <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.0/dist/ethers.min.js"></script>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    hello: 'hello there',
+                    provider: null
                 },
                 methods: {
                     async connectToMetaMask() {
-                    // Check if MetaMask is already connected
+                        // Check if MetaMask is already connected
                         if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
                             // Use the modern dapp browsers or legacy dapp browsers
                             this.provider = new ethers.providers.Web3Provider(window.ethereum || window.web3.currentProvider)
@@ -33,7 +31,6 @@
                     }
                 }
             })
-            app.mount('#app')
         </script>
     </body>
 </html>
