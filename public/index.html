@@ -7,6 +7,7 @@
     <body>
         <div id="app">
             {{ hello }}
+            <button @click="connectToMetaMask">Connect to MetaMask</button>
         </div>
 
         <script src="https://unpkg.com/vue@next"></script>
@@ -14,7 +15,20 @@
             let app = Vue.createApp({
                 data: function() {
                     return {
-                        hello: 'hello there'
+                        hello: 'hello there',
+                        provider: null
+                    }
+                },
+                methods: {
+                    async connectToMetaMask() {
+                    // Check if MetaMask is already connected
+                        if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
+                            // Use the modern dapp browsers or legacy dapp browsers
+                            const provider = new ethers.providers.Web3Provider(window.ethereum || window.web3.currentProvider)
+                            this.provider = provider
+                        } else {
+                            alert('Please install MetaMask!')
+                        }
                     }
                 }
             })
