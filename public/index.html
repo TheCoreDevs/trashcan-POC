@@ -12,7 +12,7 @@
 
         <script src="https://unpkg.com/vue@next"></script>
         <script type="module">
-            import { ethers } from "https://cdn.ethers.io/lib/ethers-5.2.esm.min.js";
+            import { ethers } from "../src/ethers.js";
 
             let app = Vue.createApp({
                 data: function() {
@@ -26,8 +26,7 @@
                     // Check if MetaMask is already connected
                         if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
                             // Use the modern dapp browsers or legacy dapp browsers
-                            const provider = new ethers.providers.Web3Provider(window.ethereum || window.web3.currentProvider)
-                            this.provider = provider
+                            this.provider = new ethers.providers.Web3Provider(window.ethereum || window.web3.currentProvider)
                         } else {
                             alert('Please install MetaMask!')
                         }
