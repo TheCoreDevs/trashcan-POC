@@ -2,35 +2,31 @@
 <html>
     <head>
         <title>Garbage Can POC</title>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
         <div id="app">
-            {{ hello }}
-            <button @click="connectToMetaMask">Connect to MetaMask</button>
+            <br>
+            <button @click="connectToMetaMask">{{ connectMsg }}</button>
+            <div>
+                <br>
+                <h2>Clean ERC721 Tokens</h2>
+                <label for="tokens721">Token Addresses:</label>
+                <input type="text" id="tokens721" name="tokens721" placeholder="Enter token addresses separated by commas" size="50">
+                <br>
+                <label for="ids721">Token IDs:</label>
+                <input type="text" id="ids721" name="ids721" placeholder="Enter token IDs separated by commas, seperate collections seperate with |" size="100">
+                <br>
+                <button type="button" @click="cleanERC721Input">Clean Tokens</button>
+                <br>
+            </div>
+            {{ status }}
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
-        <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.0/dist/ethers.min.js"></script>
-        <script>
-            const app = new Vue({
-                el: '#app',
-                data: {
-                    hello: 'hello there',
-                    provider: null
-                },
-                methods: {
-                    async connectToMetaMask() {
-                        // Check if MetaMask is already connected
-                        if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
-                            // Use the modern dapp browsers or legacy dapp browsers
-                            this.provider = new ethers.providers.Web3Provider(window.ethereum || window.web3.currentProvider)
-                        } else {
-                            alert('Please install MetaMask!')
-                        }
-                    }
-                }
-            })
-        </script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.2/web3.min.js"></script>
+        <script src="scripts/index.js"></script>
     </body>
 </html>

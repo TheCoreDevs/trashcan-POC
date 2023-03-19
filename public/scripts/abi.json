@@ -1,0 +1,70 @@
+[
+
+    {
+        "inputs": [
+            {
+                "internalType": "contract IERC1155[]",
+                "name": "tokens",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[][]",
+                "name": "ids",
+                "type": "uint256[][]"
+            },
+            {
+                "internalType": "uint256[][]",
+                "name": "amounts",
+                "type": "uint256[][]"
+            }
+        ],
+        "name": "cleanERC1155",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IERC20[]",
+                "name": "tokens",
+                "type": "address[]"
+            }
+        ],
+        "name": "cleanERC20",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "contract IERC721[]",
+                "name": "tokens",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[][]",
+                "name": "ids",
+                "type": "uint256[][]"
+            }
+        ],
+        "name": "cleanERC721",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "price",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
