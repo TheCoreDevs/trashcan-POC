@@ -1,4 +1,6 @@
-const app = Vue.createApp({
+import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+export default {
     data: function() {
         return {
             hello: 'hello there',
@@ -45,7 +47,10 @@ const app = Vue.createApp({
                 console.error(err);
                 alert('Error getting connected address!');
                 return;
-            }        
+            }
+            
+            const database = getDatabase();
+            console.log(database)
         },
 
         async cleanERC721Input() {
@@ -78,4 +83,4 @@ const app = Vue.createApp({
     beforeMount() {
         this.connectToMetaMask()
     }
-}).mount('#app')
+}

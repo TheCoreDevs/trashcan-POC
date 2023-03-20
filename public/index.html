@@ -5,28 +5,33 @@
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body>
-        <div id="app">
+        
+    <div id="app">
+        <br>
+        <button id="connectWalletButton" @click="connectToMetaMask">{{ connectMsg }}</button>
+        <div>
             <br>
-            <button id="connectWalletButton" @click="connectToMetaMask">{{ connectMsg }}</button>
-            <div>
-                <br>
-                <h2>Clean ERC721 Tokens</h2>
-                <label for="tokens721">Token Addresses:</label>
-                <input type="text" id="tokens721" name="tokens721" placeholder="Enter token addresses separated by commas" size="50">
-                <br>
-                <label for="ids721">Token IDs:</label>
-                <input type="text" id="ids721" name="ids721" placeholder="Enter token IDs separated by commas, seperate collections seperate with |" size="100">
-                <br>
-                <button type="button" @click="cleanERC721Input">Clean Tokens</button>
-                <br>
-            </div>
-            {{ status }}
+            <h2>Clean ERC721 Tokens</h2>
+            <label for="tokens721">Token Addresses:</label>
+            <input type="text" id="tokens721" name="tokens721" placeholder="Enter token addresses separated by commas" size="50">
+            <br>
+            <label for="ids721">Token IDs:</label>
+            <input type="text" id="ids721" name="ids721" placeholder="Enter token IDs separated by commas, seperate collections seperate with |" size="100">
+            <br>
+            <button type="button" @click="cleanERC721Input">Clean Tokens</button>
+            <br>
         </div>
+        {{ status }}
+    </div>
 
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.2/web3.min.js"></script>
-        <script src="scripts/index.js"></script>
-    </body>
+    <script type="module">
+        import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+        import componenet from "./scripts/index.js";
+
+        createApp(componenet).mount("#app")
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.2/web3.min.js"></script>
+    <script type="module" src="scripts/index.js"></script>
 </html>

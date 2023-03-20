@@ -1,5 +1,6 @@
 body {
     background: rgb(22, 188, 238);
+    font-family: "Lucida Console", monospace;
 }
 
 #connectWalletButton {
