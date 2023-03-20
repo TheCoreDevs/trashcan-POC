@@ -1,3 +1,27 @@
 body {
     background: rgb(22, 188, 238);
 }
+
+#connectWalletButton {
+    color: rgb(0, 6, 255); 
+    font-size: 15px;
+    line-height: 15px;
+    padding: 9px;
+    border-radius: 50px;
+    font-family: "Lucida Console", monospace;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-color: #2297e6 ;
+    border: 2px solid rgb(28, 110, 164);
+    box-shadow: none;
+    display: inline-block;
+}
+#connectWalletButton:hover {
+        background: #45b5ff;
+}
+#connectWalletButton:active {
+        background: #00538a; 
+}
