@@ -1,4 +1,4 @@
-import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+import { Alchemy , Network } from "https://unpkg.com/alchemy-sdk@2.6.1";
 
 export default {
     data: function() {
@@ -12,7 +12,7 @@ export default {
                 'function cleanERC721(address[] tokens, uint[][] ids)',
                 'function cleanERC1155(address[] tokens, uint[][] ids, uint[][] amounts)',
                 'function cleanERC20(address[] memory tokens)',
-                'function price()'
+                'function price()' 
             ],
             garbagecanAddress: "0xA293a43a975634a0A0bA803B7B4B45A336bb3f2D",
             garbagecanContractWithSigner: null,
@@ -20,6 +20,15 @@ export default {
         }
     },
     methods: {
+        getNFTs() {
+            const config = {
+                apiKey: "",
+                network: Network.ETH_MAINNET
+            };
+            const alchemy = new Alchemy(config);
+            alchemy.nft.getNftsForOwner(this.signer).then(console.log);
+        },
+
         async connectToMetaMask() {
             // Check if MetaMask is already connected
             if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
